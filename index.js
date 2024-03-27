@@ -54,8 +54,8 @@ document.getElementById('createPet').addEventListener('submit', function (event)
     });
 
     let petMessageDiv = document.createElement("div");
-    petMessageDiv.innerHTML = `${pet.name}` +"message";
-    petMessageDiv.className = 'message' + pet.name;
+    petMessageDiv.innerHTML = pet.name + " created!";
+    petMessageDiv.id = 'message' + pet.name;
     petContainer.append(petMessageDiv);
 
     petContainer.append(napBtn, playBtn, eatBtn);
@@ -75,8 +75,11 @@ class Pet {
     nap() {
         this.tiredness = Math.max(0, this.tiredness - 40);
         this.happiness = Math.max(0, this.happiness - 10);
+        // this.decreaseHappiness(10);
         this.hunger = Math.min(100, this.hunger + 10);
         this.loneliness = Math.min(100, this.loneliness + 10);
+
+        this.getMessageDiv().innerHTML = this.name + " took a nap";
     }
 
     play() {
@@ -89,12 +92,25 @@ class Pet {
         this.hunger = Math.min(100, this.hunger + 20);
         this.tiredness = Math.min(100, this.tiredness + 20);
         this.loneliness = Math.max(0, this.loneliness - 10);
+
+        this.getMessageDiv().innerHTML = this.name + " played";
     }
 
     eat() {
         this.hunger = Math.max(0, this.hunger - 60);
         this.tiredness = Math.min(100, this.tiredness + 10);
+
+        this.getMessageDiv().innerHTML = this.name + " ate";
     }
+
+    getMessageDiv() {
+        let petMessageDiv = document.getElementById('message' + this.name);
+        return petMessageDiv;
+    }
+
+    // decreaseHappiness(decreaseBy){
+    //     this.happiness = Math.max(0, this.happiness - decreaseBy);
+    // }
 }
 
 
