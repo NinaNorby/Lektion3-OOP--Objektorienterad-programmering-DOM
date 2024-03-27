@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <title>Workshop - "Objektorienterad programmering - Tamagotchi"
+    </title>
+</head>
+
+<body>
+    <h1>Paw Patrole Tamagotchi- world</h1>
+    <form id="createPet">
+        <div id="containerOne">
+            <div class="containerName">
+                <label for="inputName">Animal Name:</label>
+                <input class="inputName" id="inputName" type="text" placeholder="example Sky">
+            </div>
+            <div id="containerDropDown">
+                <label for="dog-names">Choose a breed of dog</label>
+                <select name="dog-names" id="dog-names">
+                    <option disabled selected value> --select an option -- </option>
+                    <option value="cocker-spaniel-poodle">cocker spaniel/poodle</option>
+                    <option value="German-shepherd">German shepherd</option>
+                    <option value="dalmatian">Dalmatian</option>
+                </select>
+            </div>
+            <div id="containerBtn">
+                <button type="submit" class="btn">
+                    <img src="./assets/3904533ccfdd596ff055f15a11eb3085-removebg-preview (1).png" alt="A paw">
+                </button>
+            </div>
+        </div>
+    </form>
+    <section id="pets" class="petContainer"></section>
+
+</body>
+
+</html>

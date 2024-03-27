@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(154, 183, 228);
+  font-family: "Orbitron", sans-serif;
+}
+body #containerOne .containerName ::-moz-placeholder {
+  font-family: "Orbitron", sans-serif;
+  color: gray;
+}
+body #containerOne .containerName ::placeholder {
+  font-family: "Orbitron", sans-serif;
+  color: gray;
+}
+body #containerOne #containerDropDown select {
+  font-family: "Orbitron", sans-serif;
+}
+body #containerOne #containerBtn .btn {
+  font-family: "Orbitron", sans-serif;
+  background-color: rgb(134, 160, 199);
+  color: white;
+  border: none;
+  padding: 5px;
+  font-size: 1rem;
+  height: 100px;
+  width: 100px;
+  box-shadow: 0 2px 4px darkslategray;
+  cursor: pointer;
+  border-radius: 70%;
+  display: flex;
+  justify-content: center;
+  justify-content: center;
+  margin: 20px;
+}
+body #containerOne #containerBtn .btn img {
+  max-width: 100%;
+  max-height: 100%;
+}
+body #containerOne #containerBtn .btn:hover {
+  background-color: rgb(219, 202, 51);
+}
+body progress {
+  width: 200px;
+  border-radius: 10px;
+}
+body progress::-webkit-progress-bar {
+  background-color: #f8ebe1;
+  border-radius: 1px;
+  border: 3px solid #0a1d44;
+}
+body progress::-webkit-progress-value {
+  background: #174e8d;
+  background-color: #0a1d44;
+  border-radius: 0px;
+}/*# sourceMappingURL=style.css.map */
