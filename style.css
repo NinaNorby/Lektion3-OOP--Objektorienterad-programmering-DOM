@@ -1,9 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   background-color: rgb(154, 183, 228);
   font-family: "Orbitron", sans-serif;
@@ -15,6 +10,9 @@ body #containerOne .containerName ::-moz-placeholder {
 body #containerOne .containerName ::placeholder {
   font-family: "Orbitron", sans-serif;
   color: gray;
+}
+body #containerOne #containerDropDown label {
+  background-color: #0a1d44;
 }
 body #containerOne #containerDropDown select {
   font-family: "Orbitron", sans-serif;
@@ -56,4 +54,35 @@ body progress::-webkit-progress-value {
   background: #174e8d;
   background-color: #0a1d44;
   border-radius: 0px;
+}
+body #pets {
+  background-color: rgb(86, 131, 164);
+  margin-bottom: 10px;
+}
+body #pets img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10%;
+  background-color: rgb(109, 153, 184);
+  box-shadow: 0 2px 4px;
+  max-width: 20%;
+  height: auto;
+}
+body #pets img:hover {
+  background-color: yellow;
+}
+body #pets button {
+  font-family: "Orbitron", sans-serif;
+  background-color: #0a1d44;
+  border: none;
+  color: #fafafa;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10%;
+  cursor: pointer;
+  margin: 0.1rem;
+}
+body #pets button:hover {
+  background-color: #ffffff;
+  color: #0a1d44;
 }/*# sourceMappingURL=style.css.map */

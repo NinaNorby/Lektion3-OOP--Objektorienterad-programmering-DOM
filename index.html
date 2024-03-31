@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js" defer></script>
+    <script src="index.js" type="module" defer></script>
+
+
+    <!-- fontawesome script  -->
+    <script src="https://kit.fontawesome.com/ce8c6a5a73.js" crossorigin="anonymous" defer></script>
+
     <title>Workshop - "Objektorienterad programmering - Tamagotchi"
     </title>
 </head>
@@ -18,20 +23,14 @@
                 <label for="inputName">Animal Name:</label>
                 <input class="inputName" id="inputName" type="text" placeholder="example Sky">
             </div>
-            <div id="containerDropDown">
-                <label for="dog-names">Choose a breed of dog</label>
-                <select name="dog-names" id="dog-names">
-                    <option disabled selected value> --select an option -- </option>
-                    <option value="cocker-spaniel-poodle">cocker spaniel/poodle</option>
-                    <option value="German-shepherd">German shepherd</option>
-                    <option value="dalmatian">Dalmatian</option>
-                </select>
-            </div>
-            <div id="containerBtn">
+            <section id="containerDrop">
+                <label id="containerDropDown" for="dog-breeds">Choose a breed of dog</label>
+            </section>
+            <section id="containerBtn">
                 <button type="submit" class="btn">
-                    <img src="./assets/3904533ccfdd596ff055f15a11eb3085-removebg-preview (1).png" alt="A paw">
+                    <img src="./assets/btn-paw.png" alt="A paw">
                 </button>
-            </div>
+            </section>
         </div>
     </form>
     <section id="pets" class="petContainer"></section>

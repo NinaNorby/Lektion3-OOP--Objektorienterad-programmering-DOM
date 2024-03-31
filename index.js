@@ -1,7 +1,35 @@
+import { Dog, DogArray, Pet } from '/dogs.js';
+//Instanser  av dog och dogArray samt 
+let bullDogImg = new Image();
+bullDogImg.src = 'assets/bulldog.png';
+let bullDog = new Dog("Bull-dog", bullDogImg);
+
+let dalmatianImg = new Image();
+dalmatianImg.src = 'assets/dalmatian.png';
+let dalmatian = new Dog("Dalmatian", dalmatianImg);
+
+let germanShepherdImg = new Image();
+germanShepherdImg.src = "assets/german-shepherd.png";
+let germanShepherd = new Dog("German-Shepherd", germanShepherdImg);
+
+let cockapooImg = new Image();
+cockapooImg.src = 'assets/Cockapoo.png';
+let cockapoo = new Dog("Cockapoo", cockapooImg);
+
+//Instans av dogArrat som heter alldogs 
+let allDogs = new DogArray();
+allDogs.addDog(bullDog);
+allDogs.addDog(dalmatian);
+allDogs.addDog(germanShepherd);
+allDogs.addDog(cockapoo);
+
 function generatePetStatusHTML(pet) {
+
+    let dogImg = allDogs.getBreedImg(pet.animalType);
     return `
         <div class="pet">
             <h2>${pet.name}, ${pet.animalType}</h2>
+            ${dogImg.outerHTML}
             <p>Tiredness: <progress value="${pet.tiredness}" max="100"></progress></p>
             <p>Hunger: <progress value="${pet.hunger}" max="100"></progress></p>
             <p>Loneliness: <progress value="${pet.loneliness}" max="100"></progress></p>
@@ -10,11 +38,20 @@ function generatePetStatusHTML(pet) {
     `;
 }
 
+
+
+
+
 document.getElementById('createPet').addEventListener('submit', function (event) {
     event.preventDefault();
+    
+    setTimeout(() => {
+        
+        // console.log("hej");
+    }, 2000);
 
     const name = document.getElementById('inputName').value;
-    const animalType = document.getElementById('dog-names').value;
+    const animalType = document.getElementById('dog-breeds').value;
 
     //Förhindrar att man kan gå  vidare utan att fylla i alla fält 
     if (!name || !animalType) {
@@ -31,7 +68,7 @@ document.getElementById('createPet').addEventListener('submit', function (event)
     petContainer.append(statusDiv);
 
     let napBtn = document.createElement("button");
-    napBtn.innerHTML = "Nap";
+    napBtn.innerHTML = `<i class="fa-solid fa-moon"></i>`;
     napBtn.addEventListener("click", () => {
         pet.nap();
 
@@ -39,14 +76,14 @@ document.getElementById('createPet').addEventListener('submit', function (event)
     });
 
     let playBtn = document.createElement("button");
-    playBtn.innerHTML = "Play";
+    playBtn.innerHTML = `<i class="fa-solid fa-football"></i>`;
     playBtn.addEventListener("click", () => {
         pet.play();
         statusDiv.innerHTML = generatePetStatusHTML(pet);
     });
 
     let eatBtn = document.createElement("button");
-    eatBtn.innerHTML = "Feed";
+    eatBtn.innerHTML = `<i class="fa-solid fa-bone"></i>`;
     eatBtn.addEventListener("click", () => {
         pet.eat();
 
@@ -54,7 +91,7 @@ document.getElementById('createPet').addEventListener('submit', function (event)
     });
 
     let petMessageDiv = document.createElement("div");
-    petMessageDiv.innerHTML = pet.name + " created!";
+    petMessageDiv.innerHTML = pet.name + " is created!";
     petMessageDiv.id = 'message' + pet.name;
     petContainer.append(petMessageDiv);
 
@@ -62,57 +99,33 @@ document.getElementById('createPet').addEventListener('submit', function (event)
 });
 
 
-// objectet /klassen Pet
-class Pet {
-    constructor(name, animalType) {
-        this.name = name;
-        this.animalType = animalType;
-        this.tiredness = 10;
-        this.hunger = 50;
-        this.loneliness = 50;
-        this.happiness = 50;
-    }
-    nap() {
-        this.tiredness = Math.max(0, this.tiredness - 40);
-        this.happiness = Math.max(0, this.happiness - 10);
-        // this.decreaseHappiness(10);
-        this.hunger = Math.min(100, this.hunger + 10);
-        this.loneliness = Math.min(100, this.loneliness + 10);
 
-        this.getMessageDiv().innerHTML = this.name + " took a nap";
-    }
 
-    play() {
-        if (this.tiredness >= 70) {
-            console.log("Too tired to play.");
-            return;
-        }
 
-        this.happiness = Math.min(100, this.happiness + 30);
-        this.hunger = Math.min(100, this.hunger + 20);
-        this.tiredness = Math.min(100, this.tiredness + 20);
-        this.loneliness = Math.max(0, this.loneliness - 10);
+// dropdown för breeds  (Hittade lösningen på stackoverflow )
+let containerDropDown = document.getElementById('containerDropDown');
 
-        this.getMessageDiv().innerHTML = this.name + " played";
-    }
 
-    eat() {
-        this.hunger = Math.max(0, this.hunger - 60);
-        this.tiredness = Math.min(100, this.tiredness + 10);
+let dogArray = allDogs.getDogBreeds();
+let selectList = document.createElement("select");
+selectList.id = "dog-breeds";
 
-        this.getMessageDiv().innerHTML = this.name + " ate";
-    }
+// Create a disabled and selected option
+let defaultOption = document.createElement("option");
+defaultOption.textContent = " --select an option -- ";
+defaultOption.value = "";
+defaultOption.selected = true;
+defaultOption.disabled = true;
+selectList.appendChild(defaultOption);
 
-    getMessageDiv() {
-        let petMessageDiv = document.getElementById('message' + this.name);
-        return petMessageDiv;
-    }
-
-    // decreaseHappiness(decreaseBy){
-    //     this.happiness = Math.max(0, this.happiness - decreaseBy);
-    // }
+for (let i = 0; i < dogArray.length; i++) {
+    let option = document.createElement("option");
+    option.value = dogArray[i];
+    option.text = dogArray[i];
+    selectList.appendChild(option);
 }
 
+containerDropDown.appendChild(selectList);
 
 // let Chase = new Pet("Chase", "German shepherd");
 // Chase.nap();
@@ -120,3 +133,6 @@ class Pet {
 // let Sky = new Pet("Sky", "cocker spaniel/poodle");
 // let Marshall = new Pet("Marshall", "Dalmatian");
 // let Rubble = new Pet("Rubble ", "English bulldog");
+
+
+

@@ -79,3 +79,52 @@ html pet container
             </div>
         </div>
     </div>
+
+
+      //   #containerTwo {
+  //     display: flex;
+  //     justify-content: space-between;
+
+  //     .containerCardOne,
+  //     .containerCardTwo,
+  //     .containerCardThree {
+  //         flex: 1;
+  //         height: 20vh;
+  //     }
+  //     .containerCardOne{
+  //         border-radius: 10%;
+  //       background-color: rgb(219, 202, 51);
+  //       display: flex;
+  //       justify-content: center;
+  //       justify-content: center;
+  //       img{
+
+  //         max-width: 100%;
+  //         max-height: 100%;
+  //       }
+  //     }
+  //     .containerCardTwo{
+  //       border-radius: 10%;
+  //       background-color: rgb(59, 135, 197);
+  //       display: flex;
+  //       justify-content: center;
+  //       justify-content: center;
+  //       img{
+
+  //         max-width: 100%;
+  //         max-height: 100%;
+  //       }
+  //     }
+  //     .containerCardThree{
+  //       border-radius: 10%;
+  //       background-color: rgb(202, 41, 41);
+  //       display: flex;
+  //       justify-content: center;
+  //       justify-content: center;
+  //       img{
+
+  //         max-width: 100%;
+  //         max-height: 100%;
+  //       }
+  //     }
+  // }
