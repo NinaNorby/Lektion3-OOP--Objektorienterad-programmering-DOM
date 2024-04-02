@@ -56,20 +56,17 @@ body progress::-webkit-progress-value {
   border-radius: 0px;
 }
 body #pets {
-  background-color: rgb(86, 131, 164);
+  background-color: rgb(65, 103, 214);
   margin-bottom: 10px;
 }
 body #pets img {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 10%;
-  background-color: rgb(109, 153, 184);
+  background-color: rgb(74, 116, 241);
   box-shadow: 0 2px 4px;
   max-width: 20%;
   height: auto;
-}
-body #pets img:hover {
-  background-color: yellow;
 }
 body #pets button {
   font-family: "Orbitron", sans-serif;
