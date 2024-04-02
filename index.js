@@ -1,5 +1,7 @@
 import { Dog, DogArray, Pet } from '/dogs.js';
 //Instanser  av dog och dogArray samt 
+document.addEventListener("DOMContentLoaded", function() {
+
 let bullDogImg = new Image();
 bullDogImg.src = 'assets/bulldog.png';
 let bullDog = new Dog("Bull-dog", bullDogImg);
@@ -32,8 +34,8 @@ function generatePetStatusHTML(pet) {
             ${dogImg.outerHTML}
             <p>Tiredness: <progress value="${pet.tiredness}" max="100"></progress></p>
             <p>Hunger: <progress value="${pet.hunger}" max="100"></progress></p>
-            <p>Loneliness: <progress value="${pet.loneliness}" max="100"></progress></p>
-            <p>Happiness: <progress value="${pet.happiness}" max="100"></progress></p>
+            <p>Loneliness: <progress id="loneliness_${pet.name}" value="${pet.loneliness}" max="100"></progress></p>
+            <p>Happiness: <progress id="happiness_${pet.name}" value="${pet.happiness}" max="100"></progress></p>
         </div>
     `;
 }
@@ -44,11 +46,7 @@ function generatePetStatusHTML(pet) {
 
 document.getElementById('createPet').addEventListener('submit', function (event) {
     event.preventDefault();
-    
-    setTimeout(() => {
-        
-        // console.log("hej");
-    }, 2000);
+
 
     const name = document.getElementById('inputName').value;
     const animalType = document.getElementById('dog-breeds').value;
@@ -62,6 +60,7 @@ document.getElementById('createPet').addEventListener('submit', function (event)
 
     const pet = new Pet(name, animalType);
     const petContainer = document.getElementById('pets');
+
 
     let statusDiv = document.createElement("div");
     statusDiv.innerHTML = generatePetStatusHTML(pet);
@@ -96,6 +95,11 @@ document.getElementById('createPet').addEventListener('submit', function (event)
     petContainer.append(petMessageDiv);
 
     petContainer.append(napBtn, playBtn, eatBtn);
+
+
+
+    pet.timePassed();
+
 });
 
 
@@ -135,4 +139,4 @@ containerDropDown.appendChild(selectList);
 // let Rubble = new Pet("Rubble ", "English bulldog");
 
 
-
+});

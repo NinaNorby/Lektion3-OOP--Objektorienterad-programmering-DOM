@@ -75,12 +75,32 @@ export class Pet {
         this.tiredness = Math.min(100, this.tiredness + 10);
 
         this.getMessageDiv().innerHTML = this.name + " ate";
-        
-    }
 
+    }
+    timePassed() {
+        setInterval(() => { //Ändrade från setTime till detta 
+            this.happiness = Math.max(0, this.happiness - 10);
+            this.hunger = Math.min(100, this.hunger + 20);
+            this.tiredness = Math.min(100, this.tiredness + 20);
+            this.loneliness = Math.max(0, this.loneliness - 10);
+    
+            //Hämtar html elementen 
+            let tirednessElement = document.getElementById(`tiredness_${this.name}`);
+            let hungerElement = document.getElementById(`hunger_${this.name}`);
+            let lonelinessElement = document.getElementById(`loneliness_${this.name}`);
+            let happinessElement = document.getElementById(`happiness_${this.name}`);
+    
+            //Uppdaterar värderna i HTML 
+            if (tirednessElement) tirednessElement.value = this.tiredness;
+            if (hungerElement) hungerElement.value = this.hunger;
+            if (lonelinessElement) lonelinessElement.value = this.loneliness;
+            if (happinessElement) happinessElement.value = this.happiness;
+        }, 30000);  //Var 30 sek kommer värderna att ändras. 
+    }
     getMessageDiv() {
         let petMessageDiv = document.getElementById('message' + this.name);
         return petMessageDiv;
+
     }
 
     // decreaseHappiness(decreaseBy){
